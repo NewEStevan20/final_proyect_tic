@@ -1,0 +1,28 @@
+---
+import Airtable from 'airtable';
+
+let apiKey = import.meta.env.AIRTABLE_API_KEY;  
+let airtable = new Airtable({apiKey}).base('appQRvIgRbgoETqQs');
+
+let elements = await airtable('Art').select({
+view: 'Grid view',
+maxRecords: 3,
+sort: [{field: "Created", direction: "desc"}]
+}).firstPage();
+
+const items = elements.map((record) => ({
+    params: { id: record.id },
+    props: {
+        ...record.fields
+    }
+    }));
+
+---
+    
+    {items.map((item) => (
+        <div class="last-image">
+            <a href={`/art/${item.params.id}`}>
+                <img src={item.props.Attachments[0].url}/>
+            </a>
+        </div>
+    ))}
