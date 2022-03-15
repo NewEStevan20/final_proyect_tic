@@ -7,7 +7,7 @@
   --color5: #dd5a40;
   --color6: #bbb6df;
 
-  --fg-dark: #ffffff;
+  --fg-dark: #000000;
 
   --font1: 'Fira Sans Condensed', sans-serif;
   --font2: 'Special Elite', cursive;
@@ -26,17 +26,6 @@ body {
   color: var(--color2);
 }
 
-p, li {
-  margin-bottom: 1.4em;
-  line-height: 1.6em;
-}
-
-li {
-  margin-left: 1em;
-  margin-bottom: 1em;
-}
-
-
 h1,
 h2,
 h3,
@@ -48,14 +37,8 @@ h6 {
   margin-bottom: 0.5em;
 }
 
-h1 a {
-  color: var(--color5);
-  font-family: var(--font2);
-  text-decoration: none;
-}
-
 #header {
-  background-color: var(--color4);
+  background-color: var(--color3);
   color: var(--fg-dark);
   min-height: 2em;
 }
@@ -112,7 +95,6 @@ h1 a {
 .blog-post .title {
   font-size: 1.4em;
   font-weight: 600;
-  margin-top: 1em;
   margin-bottom: 1em;
 }
 
@@ -136,7 +118,6 @@ h1 a {
   max-width: 960px;
   margin: 0 auto;
   padding: 2em;
-  min-height: 75vh;
 }
 
 .foot {
@@ -148,10 +129,6 @@ h1 a {
   margin-top: 2em;
 }
 
-.foot p {
-  margin-bottom: 1em;
-}
-
 .foot .links ul {
   display: flex;
   flex-direction: row;
@@ -161,18 +138,12 @@ h1 a {
   justify-content: center;
 }
 
-.foot a {
-  color: var(--fg-dark);
-}
-
 .links ul li {
   list-style: none;
 }
 
 img.logo {
   filter: drop-shadow(0px 0px 2px var(--color4));
-  max-width: 150px;
-  justify-self: ce;
 }
 
 img.logo:hover {
@@ -192,13 +163,7 @@ img.logo:hover {
 
 .art-preview .art-picture {
   width: 100%;
-  height: 150px;
-  background-color: gray;
-  overflow: hidden;
-}
-
-.art-preview .art-picture img {
-  width: 100%;
+  height: 100px;
   background-color: gray;
 }
 
@@ -206,17 +171,6 @@ img.logo:hover {
   display: block;
   font-size: 0.7em;
   padding-top: 0.5em;
-}
-
-.art-preview .title {
-  display: block;
-  line-height: 1.2em;
-  text-align: center;
-  background-color: var(--color2);
-  opacity: 0.6;
-  color: var(--fg-dark);
-  margin-top: -2em;
-  padding: 0.3em;
 }
 
 .art-detail {
@@ -227,110 +181,73 @@ img.logo:hover {
 
 .art-detail .art-picture {
   width: 100%;
-  min-height: 400px;
+  height: 400px;
   background-color: gray;
-}
-
-.art-detail .art-picture img {
-  width: 100%;
 }
 
 .art-detail .description {
   display: block;
-  font-size: 1em;  
-  padding: 1em;
+  font-size: 1em;
   padding-top: 0.5em;
 }
-
-.art-detail .description p {
-  margin-bottom: 1em;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-img.logofront {
-  display: block;
-  margin: 0 auto;
-  margin-bottom: 2em;
+.form-login {
+  width: 400px;
+  height: 340px;
+  background: #4e4d4d;
+  margin: auto;
+  margin-top: 180px;
+  box-shadow: 7px 13px 37px #000;
+  padding: 20px 30px;
+  border-top: 4px solid #e6674f;
+  color: white;
 }
 
-.imagesfront {
-  margin-top: 2em;
-  margin-bottom: 4em;
-  display: flex;
-  flex-wrap: false;
+.form-login h5 {
+  margin: 0;
+  text-align: center;
+  height: 40px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid;
+  font-size: 20px;
+}
+
+.controls {
   width: 100%;
-  justify-content: space-around;
+  border: 1px solid #e6674f;
+  margin-bottom: 15px;
+  padding: 11px 10px;
+  background: #252323;
+  font-size: 14px;
+  font-weight: bold;
 }
 
-.imagesfront img {
-  box-shadow: 1px 1px 4px gray;
+.buttons {
+  width: 100%;
+  height: 40px;
+  background: #e6674f;
+  border: none;
+  color: white;
+  margin-bottom: 16px;
 }
 
-.blogposts {
-  margin: 2em 0 4em 0;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 1em;
-}
-
-.blogpost .title {
+.form-login p {
+  height: 40px;
   text-align: center;
-  font-weight: 600;
+  border-bottom: 1px solid;
 }
 
-.blogpost {
-  padding: 1em;
-  text-align: center;
-  min-height: 8em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--color3);
-  border-radius: 1em;
-  background: linear-gradient(45deg, var(--color4), var(--color5));
-  color: var(--fg-dark);
+.form-login a {
+  color: #e6674f;
+  text-decoration: none;
+  font-size: 14px;
 }
 
-.blogpost:hover {
-  background: linear-gradient(90deg, var(--color4), var(--color5));
-  cursor: pointer;
+.form-login a:hover {
+  text-decoration: underline;
 }
-
-.contactblock {
-  display: grid;
-  grid-template-columns: 1fr 640px;
-}
-
-.contactblock .info {
-  padding-top: 3em;
-}
-
-.contactblock .info ul {
-  padding-left: 3em;
-}
-
-.contactblock .info p {
-  margin-bottom: 1em;
-}
-
-.blogentry h1 {
-  margin-bottom: 1em;
-}
-
-.blogentry p {
-  margin-bottom: 1em;  
-}
-
-.blogentry p.overview {
-  font-size: 1.4em;
-  
-}
-
-.blogentry .postfoot {
-  margin-top: 3em;
-  opacity: 0.8;
-}
-
-.last-image img {
-  width: 200px;
-}
-

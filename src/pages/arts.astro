@@ -1,39 +1,83 @@
 ---
 // src/pages/index.astro
 import BaseLayout from '../layouts/BaseLayout.astro'
-
-import Airtable from 'airtable';
-
-
-let apiKey = import.meta.env.AIRTABLE_API_KEY;  
-let airtable = new Airtable({apiKey}).base('appQRvIgRbgoETqQs');
-
-let elements = await airtable('Art').select({
-  view: 'Grid view'
-}).firstPage();
-
-const artitems = elements.map((record) => ({
-  params: { id: record.id },
-  props: {
-    ...record.fields
-  }
-}));
-
 ---
-<BaseLayout title="Homepage">
-<h1>Obras de arte</h1>
-<div class="list-of-arts">
-  {artitems.map((item) => (
-    <div class="art-preview">
-      <a href={`/art/${item.params.id}`}>
-        <div class="art-picture">
-        <img src={item.props.Attachments[0].thumbnails.large.url} />
-        </div>
-      </a>
-      <div class="title">
-        {item.props.Name}
-      </div>
-    </div>
-  ))}
+<BaseLayout>
+<h1>Programas de radio</h1>
+
+<!-- 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"> -->
+	<link rel="preload" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" as="style">
+	
+	<meta name="robots" content="max-image-preview:large">
+
+<link rel="stylesheet" href="https://emisorasderadioonline.es/wp-content/cache/min/1/bd52b6eee5b55bd24e89fd019f2397d4.css" media="all" data-minify="1">
+	<meta name="description" content="Aquí tenemos todas las emisoras de Radio más populares de España. Escuche Radio Online gratis en su dispositivo. ¡Rápido! ¡Convenientemente! ¡Fácilmente!">
+	<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+	<link rel="canonical" href="https://emisorasderadioonline.es/">
+	<link rel="next" href="https://emisorasderadioonline.es/page/2/">
+	<meta property="og:locale" content="es_ES">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Emisoras de radio online - Escuchar radios de España en vivo">
+	<meta property="og:description" content="Aquí tenemos todas las emisoras de Radio más populares de España. Escuche Radio Online gratis en su dispositivo. ¡Rápido! ¡Convenientemente! ¡Fácilmente!">
+
+<div class="container main__wrapper">
+	<div class="row">
+		
+	</div>
+	
+	<div class="row">
+		<div class="col-md-8">
+			<div class="row">
+				<div class="col-4 col-md-4 col-lg-3">
+	<div class="item-wrapper">
+		<a href="Futbol Sala" class="item">
+			<img src="https://www.sportcartagena.es/media/sportcartagena/images/2021/02/01/2021020118185453603.jpg" class="lazy" alt="Futbol Sala">
+			<div class="item-title">Futbol Sala</div>
+		</a>
+	</div>
 </div>
+
+<div class="col-4 col-md-4 col-lg-3">
+	<div class="item-wrapper">
+		<a href="Balonesto" class="item">
+			<img src="https://mundoentrenamiento.com/wp-content/uploads/2017/06/tiro-libre-en-baloncesto.jpg" class="lazy" alt="Balonesto">
+			<div class="item-title">Balonesto</div>
+		</a>
+	</div>
+</div>
+<div class="col-4 col-md-4 col-lg-3">
+	<div class="item-wrapper">
+		<a href="Patinaje" class="item">
+			<img src="https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small/public/temas/patinaje_0.jpg" class="lazy" alt="Patinaje">
+			<div class="item-title">Patinaje</div>
+		</a>
+	</div>
+</div>
+<div class="col-4 col-md-4 col-lg-3">
+	<div class="item-wrapper">
+		<a href="Badminton" class="item">
+			<img src="https://cdn.pixabay.com/photo/2016/05/31/23/21/badminton-1428046__480.jpg" class="lazy" alt="Badminton">
+			<div class="item-title">Badminton</div>
+		</a>
+	</div>
+</div>
+<div class="col-4 col-md-4 col-lg-3">
+	<div class="item-wrapper">
+		<a href="Voleybol" class="item">
+			<img src="https://static.educalingo.com/img/tr/800/voleybol.jpg" class="lazy" alt="Voleybol">
+			<div class="item-title">Voleybol</div>
+		</a>
+	</div>
+</div>
+<div class="col-4 col-md-4 col-lg-3">
+	<div class="item-wrapper">
+		<a href="Multideporte" class="item">
+			<img src="https://www.docendo.es/productos/imagenes/img_3706_36e0129c23352650747d622aba20abdd_1.jpg" class="lazy" alt="Multideporte">
+			<div class="item-title">Multideporte</div>
+		</a>
+	</div>
+</div>
+
+</html>
+
 </BaseLayout>
