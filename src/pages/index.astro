@@ -1,17 +1,18 @@
 ---
 // src/pages/index.astro
 import BaseLayout from '../layouts/BaseLayout.astro'
+import Logo from '../assets/logo.svg'
 ---
 <BaseLayout title="Homepage">
   <h1>Introducción</h1>
-  <p>Radio ideo proporciona varios tipos de programs y emisoras distintas. Aqui encorntrarar muchos tipos de programas diferentes para todo tipo de expectadores<p/>
-  <p>Programas mas populares</p>
+  <p>Aquí os mostraremos las actividades extraescolares de Escuela IDEO.<p/>
+  <p>Actividades</p>
   <div class="blog-post">
-    <div class="title">Bienvenido a los programas de radio IDEO.</div>
+    <div class="title">Bienvenido a las extraescolares de Escuela IDEO.</div>
     <div class="content">
      <a href="/arts">
-            <img class="logo" src={'../assets/logo.svg'} />
-          </a>
+       <img class="logo" src={Logo} />    
+     </a>
       <p>Mas informacion en los a apartados superiores<p/>
      
 
