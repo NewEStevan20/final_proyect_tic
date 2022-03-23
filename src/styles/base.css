@@ -187,3 +187,8 @@ img.logo:hover {
   font-size: 1em;
   padding-top: 0.5em;
 }
+
+img.derecha {
+  float: right;
+  margin-bottom: 20px;
+}
