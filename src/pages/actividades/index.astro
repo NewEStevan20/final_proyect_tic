@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import Airtable from 'airtable';
+
+let apiKey = import.meta.env.AIRTABLE_API_KEY;  
+let dbID = import.meta.env.AIRTABLE_DB_ID;
+let airtable = new Airtable({apiKey}).base(dbID);
+
+let elements = await airtable('Actividad').select({
+  view: 'Grid view'
+}).firstPage();
+
+const actividaditems = elements.map((record) => ({
+  params: { id: record.id },
+  props: {
+    ...record.fields
+  }
+}));
+---
+
+<BaseLayout title="Homepage">
+<h1>Obras de actividade</h1>
+<div class="list-of-actividades">
+  {actividaditems && actividaditems.map((item) => (
+    <div class="actividad-preview">
+      <a href={`/actividades/${item.params.id}`}>
+        <div class="actividad-picture">
+        <img src={item.props.Attachments[0].thumbnails.large.url} />
+        </div>
+      </a>
+      <div class="title">
+        {item.props.Name}
+      </div>
+    </div>
+  ))}
+</div>
+</BaseLayout>
