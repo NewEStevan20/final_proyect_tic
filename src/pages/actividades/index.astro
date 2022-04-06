@@ -6,7 +6,7 @@ let apiKey = import.meta.env.AIRTABLE_API_KEY;
 let dbID = import.meta.env.AIRTABLE_DB_ID;
 let airtable = new Airtable({apiKey}).base(dbID);
 
-let elements = await airtable('Actividad').select({
+let elements = await airtable('Actividades').select({
   view: 'Grid view'
 }).firstPage();
 

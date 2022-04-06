@@ -9,12 +9,12 @@ export async function getStaticPaths() {
   console.log(import.meta.env.AIRTABLE_DB_ID);
   let airtable = new Airtable({apiKey}).base(dbID);
 
-  let elements = await airtable('actividad').select({
+  let elements = await airtable('Actividad').select({
     view: 'Grid view'
   }).firstPage();
 
   return elements.map((record) => ({
-    params: { actividadID: record.id },
+    params: { ActividadID: record.id },
     props: {
       ...record.fields
     }
@@ -22,21 +22,21 @@ export async function getStaticPaths() {
 }
 
 // const {aid} = Astro.request.params;
-const actividad = Astro.props;
+const Actividad = Astro.props;
 ---
 <BaseLayout title="Homepage">
   <h1>
-  <a href="/actividades">Obras</a> &lt;
-   {actividad.Name}
+  <a href="/Actividades">Obras</a> &lt;
+   {Actividad.Name}
   </h1>
   
-  <div class="actividad-detail">
-    <div class="actividad-picture">
-      <img src={actividad.Attachments[0].url}/>      
+  <div class="Actividad-detail">
+    <div class="Actividad-picture">
+      <img src={Actividad.Attachments[0].url}/>      
     </div>
     <div class="description">
         <Markdown>
-          {actividad.Notes}    
+          {Actividad.Notes}    
         </Markdown>    
     </div>
   </div>
